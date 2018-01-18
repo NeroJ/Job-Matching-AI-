@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+
+<body>
+
+<!--<img src= "{% static 'images/timg.jpeg' %}" height="500" width="500"  >-->
+
+<script>
+    function graph(id,method,hidden){
+        for(var i=0;i<method.length;i++){
+            var theUrl = "/echart?id="+id+"&method="+method[i];
+            document.getElementById(method[i]+"-graph").style.display = "block";
+            document.getElementById(method[i]+"-graph").src = theUrl;
+        }
+        graph_hidden(hidden);
+    }
+    function graph_hidden(hidden){
+        for(var i=0;i<hidden.length;i++){
+            document.getElementById(hidden[i]+"-graph").style.display = "none";
+        }
+    }
+    function goodbye(obj){
+        var theUrl = "/goodbye?id=";
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                obj.innerHTML = xmlHttp.responseText;
+        }
+        xmlHttp.open("POST", theUrl+1, true);
+        xmlHttp.send();
+    }
+</script>
+<h1 id="hello" onclick="goodbye(this)">{{ hello }}</h1>
+<form action="/search-post" method="post">
+    <div class="form">
+    <select name="f">
+	    <option>Skills</option>
+    </select>
+    {% csrf_token %}
+    <input type="text" name="q">
+    <input type="submit" value="Search">
+    </div>
+</form>
+<div id="search-hint" style="font-size:20px;margin:20px;">
+    You search people with <span style="color:#81F298;">{{ field }}</span>: <span style="color:#F39393;">{{ query }}</span>
+</div>
+<div>
+    <div id="search-result">
+{% for candidate in candidates_list %}
+    <div class="search-wrapper" data-id={{ candidate.p_id }} onclick="graph(this.dataset.id,['relation'],['radar','keyword'])">
+        <span class="search-id" style="display:none">{{ candidate.p_id }}</span>
+        <span class="search-name">{{ candidate.name }}</span>
+        <span class="search-occupation">{{ candidate.occupation}}</span>
+    </div>
+{% endfor %}
+    </div>
+    <iframe id="test" frameborder="0" class="graph" style="display:none"></iframe>
+    <iframe id="relation-graph" frameborder="0" class="graph" style="display:none"></iframe>
+    <iframe id="radar-graph" frameborder="0" class="left-graph" style="display:none"></iframe>
+    <iframe id="keyword-graph" frameborder="0" class="right-graph" style="display:none"></iframe>
+</div>
+</body>
+</html>

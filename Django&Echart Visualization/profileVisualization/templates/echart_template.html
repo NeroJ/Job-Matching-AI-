@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Echart</title>
+    {% for jsfile_name in script_list %}
+    <script src="{{host}}/{{jsfile_name}}.js"></script>
+    {% endfor %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/echart.css' %}">
+</head>
+<body>
+<h1 onclick="parent.graph(0,[],[{{ hidden }}]);">Echart</h1>
+<div class="echart">
+{{myechart|safe}}
+</div>
+</body>
+</html>

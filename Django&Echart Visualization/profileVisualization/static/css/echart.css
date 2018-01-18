@@ -1,0 +1,13 @@
+body {
+    background: url(../images/IMG_2774.jpg);
+    background-size: cover;
+}
+
+div {
+	margin-left: auto;
+	margin-right: auto;
+    background:rgba(128,128,128,.2);
+    padding:15px;
+    border:none;
+    border-radius:5px;
+}

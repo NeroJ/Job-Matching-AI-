@@ -1,0 +1,137 @@
+li a {
+    color: green;
+}
+body {
+    background: url(../images/IMG_2774.jpg);
+    background-size: cover;
+}
+option {
+	font-size:40px;
+}
+
+h1 {
+	color: white;
+}
+
+
+*{
+    margin:auto;
+    padding:0;
+}
+
+body{
+	color: white;
+}
+
+.form{
+    width: 640px;
+    height: 42px;
+    background:rgba(128,128,128,.2);
+    padding:15px;
+    border:none;
+    border-radius:5px;
+}
+
+.echart{
+    background:rgba(128,128,128,.2);
+    padding:15px;
+    border:none;
+    border-radius:5px;
+}
+
+select {
+    border: 0 none;
+    color: #FFFFFF;
+    background: transparent;
+    font: bold 20px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    font-weight: bold;
+    padding: 2px 10px;
+    width: 160px;
+    *width: 350px;
+    *background: #58B14C;
+}
+
+input[type="text"]{
+    width: 342px;
+    height: 42px;
+    background-color: #eeeeee;
+    border:none;
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    font-style:italic;
+}
+input[type='submit']{
+    /*display:inline-block;*/
+    width:112px;
+    height: 42px;
+    background-color:#d93c3c;
+    color:#fff;
+    border:none;
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+    position: relative;
+    font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+}
+
+input[type='submit']:before{
+    content:"";
+    border-width:6px;
+    border-style:solid;
+    border-color: transparent #d93c3c transparent transparent;
+    position: absolute;
+    right:100%;
+    top:38%;
+}
+
+#search-result{
+	overflow-y: scroll;
+	width: 800px;
+    height: 440px;
+    background:rgba(0,0,0,.4);
+    padding:15px;
+    border:none;
+    border-radius:5px;
+    font: 20px 'lucida sans', 'trebuchet MS', 'Tahoma';
+}
+
+.search-wrapper{
+	border-bottom: 1px dotted white;
+	border-top: 1px dotted white;
+	padding:15px;
+}
+
+.search-name{
+	color: #EF9D23;
+}
+
+.search-occupation{
+	font-size: 10px;
+}
+
+.graph{
+	width: 100%;
+    height: 74%;
+	position: absolute;
+	top:54%;
+	left:50%;
+	transform: translate(-50%, -50%);
+}
+
+.left-graph{
+	width: 50%;
+    height: 74%;
+	position: absolute;
+	top:54%;
+	left:25%;
+	transform: translate(-50%, -50%);
+}
+
+.right-graph{
+	width: 50%;
+    height: 74%;
+	position: absolute;
+	top:54%;
+	left:75%;
+	transform: translate(-50%, -50%);
+}
